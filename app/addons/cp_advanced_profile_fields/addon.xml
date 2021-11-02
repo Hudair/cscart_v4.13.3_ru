@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>cp_advanced_profile_fields</id>
+    <version>1.0</version>
+    <priority>99999</priority>
+    <status>active</status>
+    <has_icon>Y</has_icon>
+    <default_language>en</default_language>
+    <queries>
+        <item for="install">
+            ALTER TABLE `?:profile_field_descriptions`
+                ADD `maxlength` INT(10) NULL DEFAULT NULL AFTER `lang_code`,
+                ADD `placeholder` VARCHAR(255) NULL DEFAULT NULL AFTER `lang_code`,
+                ADD `prompt` TEXT NULL DEFAULT NULL AFTER `lang_code`;
+        </item>
+        <item for="install">
+            CREATE TABLE `?:system_profile_fields` (
+            `profiles_name` VARCHAR(255) NULL DEFAULT NULL ,
+            `profiles_description` VARCHAR(255) NULL DEFAULT NULL ,
+            `lang_code` CHAR(2) NULL DEFAULT NULL ,
+            `prompt` TEXT NULL DEFAULT NULL ,
+            `placeholder` VARCHAR(255) NULL DEFAULT NULL ,
+            `maxlength` INT NULL DEFAULT NULL )
+            ENGINE = InnoDB;
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('email', 'E-mail', 'ru');
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('pass_1', 'Пароль', 'ru');
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('pass_2', 'Подтверждение пароля', 'ru');
+        </item>
+        <item for="uninstall">
+            ALTER TABLE `?:profile_field_descriptions`
+                DROP `placeholder`,
+                DROP `prompt`,
+                DROP `maxlength`;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:system_profile_fields;
+        </item>
+    </queries>
+    <authors>
+        <author>
+            <name>Cart-Power</name>
+            <email>sales@cart-power.com</email>
+            <url>https://cart-power.com</url>
+        </author>
+    </authors>
+    <supplier>Cart-Power</supplier>
+    <supplier_link>https://cart-power.com</supplier_link>
+    <settings edition_type="ROOT,ULT:VENDOR">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="licensekey">
+                        <type>input</type>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

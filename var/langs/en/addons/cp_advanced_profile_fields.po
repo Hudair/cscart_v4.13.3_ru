@@ -1,0 +1,25 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::cp_advanced_profile_fields"
+msgid "Cart-Power: Advanced Profile fields"
+msgstr "Cart-Power: Advanced Profile fields"
+
+msgctxt "Addons::description::cp_advanced_profile_fields"
+msgid "Expands the capabilities of profile fields. Developed by <a target="_blank" href="https://cart-power.com/">Cart-Power</a>"
+msgstr "Expands the capabilities of profile fields. Developed by <a target="_blank" href="https://cart-power.com/">Cart-Power</a>"
+
+msgctxt "Languages::cp_advanced_profile_fields.placeholder"
+msgid "Placeholder"
+msgstr "Placeholder"
+
+msgctxt "Languages::cp_advanced_profile_fields.prompt"
+msgid "Prompt"
+msgstr "Prompt"
+
+msgctxt "Languages::cp_advanced_profile_fields.maxlength"
+msgid "Maxlength"
+msgstr "Maxlength"
