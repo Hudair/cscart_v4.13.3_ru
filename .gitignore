@@ -3,3 +3,4 @@ config.php
 config.local.php
 
 cache
+snapshots
