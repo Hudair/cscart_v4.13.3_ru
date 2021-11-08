@@ -1,1 +1,1 @@
-{style src="addons/cp_advanced_profile_fields/main.css"}
+{style src="addons/cp_advanced_profile_fields/style.less"}
