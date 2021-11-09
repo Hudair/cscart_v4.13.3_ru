@@ -16,7 +16,7 @@ if ($mode == 'add') {
     $lang_code = CART_LANGUAGE;
     $data = array();
 
-    $data = db_get_array ("SELECT * FROM `?:system_profile_fields`");
+    $data = db_get_array ("SELECT * FROM `?:system_profile_fields` WHERE `lang_code` = ?s", $lang_code);
 
     if ($data) {
         $data_profile_fields = array();

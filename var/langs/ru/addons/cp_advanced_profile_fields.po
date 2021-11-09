@@ -31,3 +31,7 @@ msgstr "Задать подсказку"
 msgctxt "Languages::cp_advanced_profile_fields.maxlength"
 msgid "Maxlength"
 msgstr "Длина строки"
+
+msgctxt "Languages::cp_advanced_profile_fields.registration_and_login_system_fields"
+msgid "Registration and login system fields"
+msgstr "Системные поля регистрации и входа"

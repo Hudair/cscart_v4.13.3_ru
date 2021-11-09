@@ -23,3 +23,7 @@ msgstr "Prompt"
 msgctxt "Languages::cp_advanced_profile_fields.maxlength"
 msgid "Maxlength"
 msgstr "Maxlength"
+
+msgctxt "Languages::cp_advanced_profile_fields.registration_and_login_system_fields"
+msgid "Registration and login system fields"
+msgstr "Registration and login system fields"

@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $dispatch['mode'] = 'update';
     $query_string['sys_field_name'] = $_REQUEST['sys_field_data']['profiles_name'];
+    
+    $lang_code = DESCR_SL;
 
     $sys_field_data = $_REQUEST['sys_field_data'];
 
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $prompt = $sys_field_data['prompt'];
     $maxlength = $sys_field_data['maxlength'];
 
-    db_query("UPDATE `?:system_profile_fields` SET `prompt` = ?s,`placeholder` = ?s,`maxlength` = ?i WHERE `profiles_name` = ?s", $prompt, $placeholder, $maxlength, $profiles_name);
+    db_query("UPDATE `?:system_profile_fields` SET `prompt` = ?s,`placeholder` = ?s,`maxlength` = ?i WHERE `profiles_name` = ?s AND `lang_code` = ?s", $prompt, $placeholder, $maxlength, $profiles_name, $lang_code);
 
     $_REQUEST['sys_field_name'] = $sys_field_data['profiles_name'];
     $profiles_description = $sys_field_data['profiles_description'];
@@ -34,9 +36,10 @@ if ($mode == 'update') {
 
     if (isset($_REQUEST['sys_field_name'])) {
     $params['sys_field_name'] = $_REQUEST['sys_field_name'];
+    
+    $lang_code = DESCR_SL;
 
-
-    $sys_fields = db_get_array("SELECT * FROM `?:system_profile_fields` WHERE `profiles_name` = ?s", $params['sys_field_name']);
+    $sys_fields = db_get_array("SELECT * FROM `?:system_profile_fields` WHERE `profiles_name` = ?s AND `lang_code` = ?s", $params['sys_field_name'], $lang_code);
 
     if (empty($sys_fields)) {
         return [CONTROLLER_STATUS_NO_PAGE];

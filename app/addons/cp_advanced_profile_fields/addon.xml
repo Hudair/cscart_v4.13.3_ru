@@ -31,12 +31,27 @@
         <item for="install">
             INSERT INTO `?:system_profile_fields`
                 (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('email', 'E-mail', 'en');
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
                 VALUES ('pass_1', 'Пароль', 'ru');
         </item>
         <item for="install">
             INSERT INTO `?:system_profile_fields`
                 (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('pass_1', 'Password', 'en');
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
                 VALUES ('pass_2', 'Подтверждение пароля', 'ru');
+        </item>
+        <item for="install">
+            INSERT INTO `?:system_profile_fields`
+                (`profiles_name`, `profiles_description`, `lang_code`)
+                VALUES ('pass_2', 'Confirm password', 'en');
         </item>
         <item for="uninstall">
             ALTER TABLE `?:profile_field_descriptions`

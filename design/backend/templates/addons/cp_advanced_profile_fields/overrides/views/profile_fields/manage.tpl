@@ -195,20 +195,13 @@
                 {/if}
                 {/foreach}
             </table>
-
-
-
-
-
-
-
             <table width="100%" class="table table-middle">
                     <tr>
                         <td colspan="{$_colspan}" class="row-header">
                             <h5>
                                 <span alt="{__("expand_section")}" title="{__("expand_section")}" id="on_section_fields_system" class="cm-combination {if !$is_deprecated}hidden{/if}"><span class="icon-caret-right"> </span></span>
                                 <span alt="{__("collapse_section")}" title="{__("collapse_section")}" id="off_section_fields_system" class="cm-combination{if $is_deprecated} hidden{/if}"><span class="icon-caret-down"> </span></span>
-                                Системные поля регистрации и входа
+                                {__("cp_advanced_profile_fields.registration_and_login_system_fields")}
                             </h5>
                         </td>
                     </tr>
@@ -236,7 +229,6 @@
                                 <td class="center" data-th="{__($area)} ({__("show")} / {__("required")})" data-ca-profile-fields-area-group="{$area}" width="{$area_col_width}%">
 
                                 </td>
-
                             <td class="nowrap mobile-hide" width="{$tools_col_width}%">
                                 {capture name="tools_list"}
                                     <li>{btn type="list" text=$update_link_text href="system_fields.update?sys_field_name=email"|fn_url}</li>
@@ -246,7 +238,6 @@
                                 </div>
                             </td>
                         </tr>
-
                         <tr class="cm-row-item cm-longtap-target"
                             data-ca-profile-fields-row="{$field.field_name}"
                             data-ca-profile-fields-section="system"
@@ -261,7 +252,7 @@
                             <td data-th="{__("position_short")}" width="{$position_col_width}%">
                             </td>
                             <td data-th="Пароль" width="{$description_col_width}%">
-                                <a href="{"system_fields.update?sys_field_name=pass_1"|fn_url}" data-ct-field-section="{$section}">Пароль</a>
+                                <a href="{"system_fields.update?sys_field_name=pass_1"|fn_url}" data-ct-field-section="{$section}">{if $descr_sl == 'ru'}Пароль{else}Password{/if}</a>
                             </td>
                             <td class="nowrap" data-th="{__("type")}" width="{$type_col_width}%">
 
@@ -279,9 +270,6 @@
                                 </div>
                             </td>
                         </tr>
-
-
-
                         <tr class="cm-row-item cm-longtap-target"
                             data-ca-profile-fields-row="{$field.field_name}"
                             data-ca-profile-fields-section="system"
@@ -296,7 +284,7 @@
                             <td data-th="{__("position_short")}" width="{$position_col_width}%">
                             </td>
                             <td data-th="Подтверждение пароля" width="{$description_col_width}%">
-                                <a href="{"system_fields.update?sys_field_name=pass_2"|fn_url}" data-ct-field-section="{$section}">Подтверждение пароля</a>
+                                <a href="{"system_fields.update?sys_field_name=pass_2"|fn_url}" data-ct-field-section="{$section}">{if $descr_sl == 'ru'}Подтверждение пароля{else}Confirm password{/if}</a>
                             </td>
                             <td class="nowrap" data-th="{__("type")}" width="{$type_col_width}%">
 
@@ -316,11 +304,6 @@
                         </tr>
                     </tbody>
             </table>
-
-
-
-
-
             {else}
             <p class="no-items">{__("no_items")}</p>
             {/if}

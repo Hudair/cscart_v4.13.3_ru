@@ -49,21 +49,21 @@ function fn_check_field_type(value, tab_id)
         <input type="hidden" name="sys_field_data[profiles_description]" value="{$profiles_description}" />
 
         <div class="control-group">
-            <label for="elm_field_placeholder" class="control-label">Placeholder:</label>
+            <label for="elm_field_placeholder" class="control-label">{__("cp_advanced_profile_fields.placeholder")}:</label>
             <div class="controls">
             <input id="elm_field_placeholder" class="input-large" type="text" name="sys_field_data[placeholder]" value="{$placeholder}" />
             </div>
         </div>
 
         <div class="control-group">
-            <label for="elm_field_prompt" class="control-label">Подсказка:</label>
+            <label for="elm_field_prompt" class="control-label">{__("cp_advanced_profile_fields.prompt")}:</label>
             <div class="controls">
             <input id="elm_field_prompt" class="input-large" type="text" name="sys_field_data[prompt]" value="{$prompt}" />
             </div>
         </div>
 
         <div class="control-group">
-            <label for="elm_field_maxlength" class="control-label">Длина строки:</label>
+            <label for="elm_field_maxlength" class="control-label">{__("cp_advanced_profile_fields.maxlength")}:</label>
             <div class="controls">
             <input id="elm_field_maxlength" class="input-large" type="text" name="sys_field_data[maxlength]" value="{$maxlength}" />
             </div>
