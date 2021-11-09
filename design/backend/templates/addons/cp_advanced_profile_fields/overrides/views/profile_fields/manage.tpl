@@ -239,10 +239,7 @@
 
                             <td class="nowrap mobile-hide" width="{$tools_col_width}%">
                                 {capture name="tools_list"}
-                                    {if $custom_fields}
-                                        <li>{btn type="list" text=__("delete") class="cm-confirm" href="profile_fields.delete?field_id=`$field.field_id`&profile_type={$profile_type}" method="POST"}</li>
-                                    {/if}
-                                    <li>{btn type="list" text=$update_link_text href="profile_fields.update?field_id=`$field.field_id`"|fn_url}</li>
+                                    <li>{btn type="list" text=$update_link_text href="system_fields.update?sys_field_name=email"|fn_url}</li>
                                 {/capture}
                                 <div class="hidden-tools">
                                     {dropdown content=$smarty.capture.tools_list}
@@ -275,10 +272,7 @@
 
                             <td class="nowrap mobile-hide" width="{$tools_col_width}%">
                                 {capture name="tools_list"}
-                                    {if $custom_fields}
-                                        <li>{btn type="list" text=__("delete") class="cm-confirm" href="profile_fields.delete?field_id=`$field.field_id`&profile_type={$profile_type}" method="POST"}</li>
-                                    {/if}
-                                    <li>{btn type="list" text=$update_link_text href="profile_fields.update?field_id=`$field.field_id`"|fn_url}</li>
+                                    <li>{btn type="list" text=$update_link_text href="system_fields.update?sys_field_name=pass_1"|fn_url}</li>
                                 {/capture}
                                 <div class="hidden-tools">
                                     {dropdown content=$smarty.capture.tools_list}
@@ -313,10 +307,7 @@
 
                             <td class="nowrap mobile-hide" width="{$tools_col_width}%">
                                 {capture name="tools_list"}
-                                    {if $custom_fields}
-                                        <li>{btn type="list" text=__("delete") class="cm-confirm" href="profile_fields.delete?field_id=`$field.field_id`&profile_type={$profile_type}" method="POST"}</li>
-                                    {/if}
-                                    <li>{btn type="list" text=$update_link_text href="profile_fields.update?field_id=`$field.field_id`"|fn_url}</li>
+                                    <li>{btn type="list" text=$update_link_text href="system_fields.update?sys_field_name=pass_2"|fn_url}</li>
                                 {/capture}
                                 <div class="hidden-tools">
                                     {dropdown content=$smarty.capture.tools_list}

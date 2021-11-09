@@ -76,7 +76,7 @@ function fn_check_field_type(value, tab_id)
 </form>
 
 {capture name="buttons"}
-    {include file="buttons/save_cancel.tpl" but_name="dispatch[system_fields.update]" but_target_form="add_fields_form" save=$id}
+    {include file="buttons/save_cancel.tpl" but_name="dispatch[system_fields.update]" but_target_form="add_fields_form" save=1}
 {/capture}
 
 {/capture}
