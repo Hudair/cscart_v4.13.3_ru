@@ -176,6 +176,10 @@ msgctxt "Languages::cp_dropbox"
 msgid "Dropbox"
 msgstr "Upload files into Dropbox"
 
+msgctxt "Languages::cp_aws_s3"
+msgid "AWS S3"
+msgstr "Upload files into Amazon S3"
+
 msgctxt "Languages::cp_get_the_token"
 msgid "Get authorization token [auth_url]"
 msgstr "Get authorization token <a href=\"[auth_url]\" target=\"_blank\" onclick=\"$('#elm_task_access_token').val('');\">here</a>"

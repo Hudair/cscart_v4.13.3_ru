@@ -383,6 +383,8 @@ function fn_cp_task_manager_type_to_string($type)
         return __("cp_regenerate_sitemap");
     } elseif ($type == TM_DROPBOX) {
         return __("cp_dropbox");
+    } elseif ($type == TM_AWS_S3) {
+        return __("cp_aws_s3");
     } elseif ($type == TM_FTP) {
         return __("ftp");
     } elseif ($type == TM_OPTIMIZE_DATABASE) {

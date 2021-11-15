@@ -176,6 +176,10 @@ msgctxt "Languages::cp_dropbox"
 msgid "Dropbox"
 msgstr "Загрузить файлы в Dropbox"
 
+msgctxt "Languages::cp_aws_s3"
+msgid "AWS S3"
+msgstr "Загрузить файлы в Amazon S3"
+
 msgctxt "Languages::cp_text_backup_filename_hint"
 msgid "A folder from which files will be uploaded to your Dropbox"
 msgstr "Папка из которой файлы будут загружаться в Ваш Dropbox"

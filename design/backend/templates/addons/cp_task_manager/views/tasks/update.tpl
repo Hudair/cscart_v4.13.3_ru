@@ -48,6 +48,7 @@
                     <option {if $task.type == $smarty.const.TM_CLEAR_LOGS}selected="selected"{/if} value="{$smarty.const.TM_CLEAR_LOGS}">{$smarty.const.TM_CLEAR_LOGS|fn_cp_task_manager_type_to_string}</option>
                     <option {if $task.type == $smarty.const.TM_CUSTOM_SCRIPT}selected="selected"{/if} value="{$smarty.const.TM_CUSTOM_SCRIPT}">{$smarty.const.TM_CUSTOM_SCRIPT|fn_cp_task_manager_type_to_string}</option>
                     <option {if $task.type == $smarty.const.TM_DROPBOX}selected="selected"{/if} value="{$smarty.const.TM_DROPBOX}">{$smarty.const.TM_DROPBOX|fn_cp_task_manager_type_to_string}</option>
+                    <option {if $task.type == $smarty.const.TM_AWS_S3}selected="selected"{/if} value="{$smarty.const.TM_AWS_S3}">{$smarty.const.TM_AWS_S3|fn_cp_task_manager_type_to_string}</option>
                     <option {if $task.type == $smarty.const.TM_FTP}selected="selected"{/if} value="{$smarty.const.TM_FTP}">{$smarty.const.TM_FTP|fn_cp_task_manager_type_to_string}</option>
                     <option {if $task.type == $smarty.const.TM_OPTIMIZE_DATABASE}selected="selected"{/if} value="{$smarty.const.TM_OPTIMIZE_DATABASE}">{$smarty.const.TM_OPTIMIZE_DATABASE|fn_cp_task_manager_type_to_string}</option>
                     <option {if $task.type == $smarty.const.TM_DATA_FEED}selected="selected"{/if} value="{$smarty.const.TM_DATA_FEED}">{$smarty.const.TM_DATA_FEED|fn_cp_task_manager_type_to_string}</option>
@@ -197,6 +198,10 @@
     
     <div class="{if $task_type != $smarty.const.TM_DROPBOX}hidden{/if}" id="task_{$smarty.const.TM_DROPBOX}_settings">
         {include file="addons/cp_task_manager/views/tasks/components/dropbox_settings.tpl"}
+    </div>
+    
+    <div class="{if $task_type != $smarty.const.TM_AWS_S3}hidden{/if}" id="task_{$smarty.const.TM_AWS_S3}_settings">
+        {include file="addons/cp_task_manager/views/tasks/components/aws_s3_settings.tpl"}
     </div>
    
     <div class="{if $task_type != $smarty.const.TM_FTP}hidden{/if}" id="task_{$smarty.const.TM_FTP}_settings">
