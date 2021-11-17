@@ -392,6 +392,34 @@ msgctxt "Languages::cp_dropbox_folder_tooltip"
 msgid "A folder from which files will be uploaded to your Dropbox"
 msgstr "Папка, из которой будут загружаться файлы в Dropbox"
 
+msgctxt "Languages::cp_aws_s3_key_tooltip"
+msgid "App key from your Amazon S3 Application"
+msgstr "App key из настроек вашего Amazon S3 приложения"
+
+msgctxt "Languages::cp_aws_s3_region_tooltip"
+msgid "App region from your Amazon S3 Application"
+msgstr "App region из настроек вашего Amazon S3 приложения"
+
+msgctxt "Languages::cp_aws_s3_secret_tooltip"
+msgid "App secret from your Amazon S3 Application"
+msgstr "App secret из настроек вашего Amazon S3 приложения"
+
+msgctxt "Languages::cp_aws_s3_bucket_tooltip"
+msgid "App bucket from your Amazon S3 Application"
+msgstr "App bucket из настроек вашего Amazon S3 приложения"
+
+msgctxt "Languages::cp_aws_s3_instruction"
+msgid "Instruction for Amazon S3"
+msgstr "Для настройки этого типа задания выполните следующие указания:</br>
+1. Создайте приложение Amazon S3. Вы можете это сделать на этой странице в вашем Amazon аккаунте: <a href=\"https://s3.console.aws.amazon.com/">My Apps</a>.</br>
+2. Используйте 'App key' и 'App secret' настройки из вашего Dropbox приложения в качестве значений для полей 'Ключ' и 'Секретный ключ' на странице редактирования задания в вашем CS-Cart магазине.</br>
+3. Вы можете настроить вашего приложение таким образом, чтобы оно использовало однажды сгенерированный Access token. Для этого выберите 'Allow' в выпадающем списке 'Allow implicit grant' и нажмите кнопку 'Generate access token' в вашем Dropbox аккаунте. Затем выберите галочку 'Использовать сгенерированный токен' и вставьте полученный токен в поле 'Токен' на странице редактирования задания.</br>
+4. Иначе вы можете сгенерировать отдельный токен для вашего CS-Cart магазина. Заполните поля 'Ключ' и 'Секретный ключ' и сохраните настройки задания, не выбирая галочку 'Использовать сгенерированный токен'. Вы увидите кнопку 'Генерировать токен' рядом с полем ввода 'Токен'. После нажатия на эту кнопку вы получите ссылку, перейдя по которой вы можете получить токен, специально сгенерированный для запросов в Dropbox из вашего CS-Cart магазина. Введите этот токен в поле 'Token' и сохраните."
+
+msgctxt "Languages::cp_aws_s3_folder_tooltip"
+msgid "A folder from which files will be uploaded to your Amazon S3"
+msgstr "Папка, из которой будут загружаться файлы в Amazon S3"
+
 msgctxt "Languages::privileges.manage_tasks"
 msgid "Manage tasks"
 msgstr "Управление задачами"

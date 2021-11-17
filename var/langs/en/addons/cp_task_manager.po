@@ -384,6 +384,34 @@ msgctxt "Languages::cp_text_backup_filename_hint"
 msgid "A folder from which files will be uploaded to your Dropbox"
 msgstr "A folder from which files will be uploaded to your Dropbox"
 
+msgctxt "Languages::cp_aws_s3_key_tooltip"
+msgid "App key from your Amazon S3 Application"
+msgstr "App key from your Amazon S3 Application"
+
+msgctxt "Languages::cp_aws_s3_region_tooltip"
+msgid "App region from your Amazon S3 Application"
+msgstr "App region from your Amazon S3 Application"
+
+msgctxt "Languages::cp_aws_s3_secret_tooltip"
+msgid "App secret from your Amazon S3 Application"
+msgstr "App secret from your Amazon S3 Application"
+
+msgctxt "Languages::cp_aws_s3_bucket_tooltip"
+msgid "App bucket from your Amazon S3 Application"
+msgstr "App bucket from your Amazon S3 Application"
+
+msgctxt "Languages::cp_aws_s3_instruction"
+msgid "Instruction for Amazon S3"
+msgstr "To use this type of task you should use the following instruction:</br>
+1. Create the Amazon S3 Application. You can do it on this page in your Amazon account: <a href=\"https://s3.console.aws.amazon.com/">My Apps</a>.</br>
+2. Use the 'App key' and 'App secret' access credentials from your Dropbox application as the 'Key' and 'Secret' values on the 'Editing task' page in your CS-Cart store.</br>
+3. You can allow your Dropbox Application to use the generated access token. For this purpose, select 'Allow' for the 'Allow implicit grant' select box and click the 'Generate access token' button in your Dropbox account. Then select the 'Use pre-generated access token' check box on this page and paste the generated token into the 'Token' field.</br>
+4. Otherwise you can generate an access token for your CS-Cart store. Fill in the 'Key' and 'Secret' fields and save your administrator task without selecting the 'Use pre-generated access token' check box. You will see the 'Generate new access token' button next to the 'Token' input field. By clicking this button you will get the 'Get autorization token' link. By following this link you can get the access token for your Dropbox Application. Enter this token into the 'Token' field."
+
+msgctxt "Languages::cp_aws_s3_folder_tooltip"
+msgid "A folder from which files will be uploaded to your Amazon S3"
+msgstr "A folder from which files will be uploaded to your Amazon S3"
+
 msgctxt "Languages::cp_extra_folders"
 msgid "Extra folders"
 msgstr "Extra folders"

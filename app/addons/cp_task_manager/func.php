@@ -307,6 +307,12 @@ function fn_cp_task_manager_update_task($data, $task_id, $lang_code = DESCR_SL)
             }
         
         }
+        
+        if ($data['type'] == TM_AWS_S3) {
+            if (!empty($task_id)) {
+                return;
+            }
+        }
 
         if (isset($data['task_settings'][$data['type']])) {
             $data['task_settings'] = serialize($data['task_settings'][$data['type']]);
