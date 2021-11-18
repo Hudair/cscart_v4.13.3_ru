@@ -452,3 +452,6 @@ msgctxt "Languages::cp_remove_after_upload"
 msgid "Remove file after uploading"
 msgstr "Удалить файл после загрузки"
 
+msgctxt "Languages::cp_error_log_empty_aws_s3_credentials"
+msgid "Empty Amazon S3 credentials"
+msgstr "Нет данных доступа в Amazon S3"

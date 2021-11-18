@@ -29,6 +29,7 @@ use Dropbox\WriteMode;
 use Dropbox\Exception_BadRequest;
 use Tygh\Http;
 use Tygh\Mailer;
+use Aws\S3\S3Client;
 
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
@@ -305,12 +306,37 @@ function fn_cp_task_manager_update_task($data, $task_id, $lang_code = DESCR_SL)
                     fn_set_notification('E', __('error'), $message);
                 }
             }
-        
         }
         
         if ($data['type'] == TM_AWS_S3) {
             if (!empty($task_id)) {
-                return;
+                try { 
+                    $folder = trim($data['task_settings'][$data['type']]['folder']);
+                    $splitted_folder = explode('/', $folder);
+                    foreach ($splitted_folder as $key => $value) {
+                        if (empty($value)) {
+                            unset($splitted_folder[$key]);
+                        }
+                    }
+                    $folder = implode('/', $splitted_folder);
+                    
+                    if (strpos(trim($data['task_settings'][$data['type']]['folder']), '/') === 0) { // starts with '/'
+                        $folder = '/' . $folder;
+                    }
+                    
+                    if (!is_dir($folder)) {
+                        throw new Exception('<b>' . $folder . '</b> - ' . __("cp_not_valid_path"));
+                    }
+                    $data['task_settings'][$data['type']]['folder'] = $folder;
+                } catch (Exception $e) {
+                    $message = $e->getMessage();
+                    if (strpos($message, '{') !== false) {
+                        $json = explode('{', $message);
+                        $message = json_decode('{' . $json[1]);
+                        $message = $message->error;
+                    }
+                    fn_set_notification('E', __('error'), $message);
+                }
             }
         }
 
@@ -408,8 +434,7 @@ function fn_cp_task_manager_get_ready_task_ids($time = TIME)
     $task_ids = array();
     if (!empty($tasks)) {
         foreach ($tasks as $task) {
-            $task['factory'] = unserialize($task['factory']);
-            
+            $task['factory'] = unserialize($task['factory']);          
             $cron = CronExpression::factory(implode(' ', $task['factory']));
             if ($cron->isDue()) {
                 $task_ids[] = $task['task_id'];
@@ -480,6 +505,8 @@ function fn_cp_task_manager_process_task_by_id($task_id)
             $result = fn_cp_task_manager_process_import($task_id, $task['task_settings']);
         } elseif ($task['type'] == TM_DROPBOX) {
             $result = fn_cp_task_manager_process_dropbox($task['task_settings']);
+        } elseif ($task['type'] == TM_AWS_S3) {
+            $result = fn_cp_task_manager_process_aws_s3($task['task_settings']);
         } elseif ($task['type'] == TM_FTP) {
             $result = fn_cp_task_manager_process_ftp($task['task_settings']);
         } elseif ($task['type'] == TM_OPTIMIZE_DATABASE) {
@@ -561,6 +588,51 @@ function fn_cp_task_manager_process_ftp($task_settings)
     ftp_close($conn_id); 
 }
 
+function fn_cp_task_manager_process_aws_s3($task_settings)
+{
+
+    if (empty($task_settings['folder']) || empty($task_settings['key']) || empty($task_settings['secret']) || empty($task_settings['region']) || empty($task_settings['bucket'])) {
+        return array(false, 'cp_error_log_empty_aws_s3_credentials', $task_settings);
+    }
+  
+    require_once('app/lib/vendor/autoload.php');
+    
+    $results = array();
+    
+    $client = new S3Client([
+        'version' => 'latest',
+        'region'  => $task_settings['region'],
+        'credentials' => [
+            'key'    => $task_settings['key'],
+            'secret' => $task_settings['secret'],
+        ]
+    ]);
+
+    $files = fn_get_dir_contents($task_settings['folder'], false, true);
+    
+    $bucketName = $task_settings['bucket'];
+    
+    foreach ($files as $file) {
+        $file_Path = $task_settings['folder'] . '/' . $file;
+        $key = basename($file_Path);
+        
+        try {
+            $result = $client->putObject([
+                'Bucket' => $bucketName,
+                'Key'    => $key,
+                'Body'   => fopen($file_Path, 'r'),
+            ]);
+            echo "File uploaded successfully. File path is: ". $result->get('ObjectURL') . "<br>";
+        } catch (AwsS3ExceptionS3Exception $e) {
+            echo "There was an error uploading the file.n" . "<br>";
+            echo $e->getMessage();
+        }
+    }
+    
+    return array(true, 'cp_success', $results);
+
+}
+
 function fn_cp_task_manager_process_dropbox($task_settings)
 {
     if (empty($task_settings['folder']) || empty($task_settings['key']) || empty($task_settings['secret']) || empty($task_settings['token'])) {
@@ -572,7 +644,7 @@ function fn_cp_task_manager_process_dropbox($task_settings)
     $results = array();
     try {
         $files = fn_get_dir_contents($task_settings['folder'], false, true);
-        
+                
         $dbx_client = new Client(isset($task_settings['access_token']) ? $task_settings['access_token'] : $task_settings['token'], "task_manager");
         foreach ($files as $file) {
             $f = @fopen($task_settings['folder'] . '/' . $file, "rb");

@@ -4,3 +4,4 @@ config.local.php
 
 cache
 snapshots
+var/backups

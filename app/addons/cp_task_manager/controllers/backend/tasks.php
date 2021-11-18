@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST') {
         }
         
         $task_id = fn_cp_task_manager_update_task($_REQUEST['task_data'], $_REQUEST['task_id'], DESCR_SL);
-
+        
         $suffix = ".update?task_id=$task_id";
     }
 
@@ -208,11 +208,11 @@ if ($mode == 'manage') {
     
 } elseif ($mode == 'process') {
     $cron_password = Registry::get('addons.cp_task_manager.cron_password');
-
     if ((!isset($_REQUEST['cron_password']) || $cron_password != $_REQUEST['cron_password']) && (!empty($cron_password))) {
         die(__('access_denied'));
     }
     $task_ids = fn_cp_task_manager_get_ready_task_ids();
+
     if (!empty($task_ids)) {
         foreach ($task_ids as $task_id) {
             fn_cp_task_manager_process_task_by_id($task_id);
