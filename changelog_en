@@ -1,0 +1,49 @@
+Legend:
+[+] - new functionality
+[*] - minor changes
+[!] - bug fixed
+[-] - deleted removed
+----------------------------
+Version  2.1
+[!] - There was an issue getting the add-ons list if there was no SSL certificate on the domain from which the request was sent. Fixed.
+
+Version 2.0
+[+] - Ability to restrict upgrades for the modified add-ons.
+[+] - The support of the MobileDetect library was added for extending abilities of Cart-Power add-ons to determine the current client device.
+[+] - Universal logging system for Cart-Power add-ons.
+[*] - Improved compatibility with CS-Cart 4.13.X
+[!] - The notifications about the available updates were not shown. Fixed.
+
+Version 1.8
+[+] - The ability to process scripts when updating via Add-ons Manager was added.
+[+] - The add-ons in the "My add-ons" list are grouped by sets.
+
+Version 1.7
+[*] - CS-Cart and Multi-Vendor v. 4.12.1 support was added.
+
+Version 1.6
+[*] - The general template image.override has been improved to work correctly on Youpi/Uni2 themes.
+[*] - Minor changes in the add-ons update script.
+
+Version 1.5
+[+] - Added a general template image.override to avoid conflicts of add-ons using this template (WebP, LazyLoad, VideoGallery, etc.)
+[!] - Errors might occur in older php versions. Fixed.
+
+Version 1.4
+[*] - The "Cart-Power: Add-ons" menu section was moved to the top panel in the "Add-ons" tab.
+
+Version 1.3
+[*] - excluded eval from functions (caused errors on some servers)
+[!] - fixed bug during update (when it was necessary to press the button twice)
+
+Version 1.2
+[*] - display of privileges for stores from version 4.10 and higher has been changed
+[!] - fixed occurring php notices in recent php versions
+[!] - fixed display of settings for addons with a separate settings page
+[!] - fixed display of images of addons for stores from version 4.11
+
+Version 1.1
+[!] - fixed arising php errors in some stores
+[!] - fixed display of release dates
+[!] - license renewal redirects fixed
+[+] - added compatibility for Multi-Vendor Ultimate
