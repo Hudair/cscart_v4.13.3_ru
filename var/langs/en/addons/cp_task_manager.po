@@ -403,10 +403,28 @@ msgstr "App bucket from your Amazon S3 Application"
 msgctxt "Languages::cp_aws_s3_instruction"
 msgid "Instruction for Amazon S3"
 msgstr "To use this type of task you should use the following instruction:</br>
-1. Create the Amazon S3 Application. You can do it on this page in your Amazon account: <a href=\"https://s3.console.aws.amazon.com/">My Apps</a>.</br>
-2. Use the 'App key' and 'App secret' access credentials from your Dropbox application as the 'Key' and 'Secret' values on the 'Editing task' page in your CS-Cart store.</br>
-3. You can allow your Dropbox Application to use the generated access token. For this purpose, select 'Allow' for the 'Allow implicit grant' select box and click the 'Generate access token' button in your Dropbox account. Then select the 'Use pre-generated access token' check box on this page and paste the generated token into the 'Token' field.</br>
-4. Otherwise you can generate an access token for your CS-Cart store. Fill in the 'Key' and 'Secret' fields and save your administrator task without selecting the 'Use pre-generated access token' check box. You will see the 'Generate new access token' button next to the 'Token' input field. By clicking this button you will get the 'Get autorization token' link. By following this link you can get the access token for your Dropbox Application. Enter this token into the 'Token' field."
+1. Create your Amazon account. You can do on this page <a href=\"https://s3.console.aws.amazon.com/">Amazon</a>.</br>
+2. Log in to Amazon. In the console, go to the service page <a href=\"https://s3.console.aws.amazon.com/s3/home\">S3</a>.</br>
+3. Create bucket. Files from your server will be uploaded to this bucket.</br>
+3.1 Enter the bucket name.</br>
+3.2 Select a region from the list. By region we mean the location of the server for downloading files. It is recommended to choose the region that is closest to our needs.</br>
+3.3 By default, public access to the bucket is blocked. Only the owner has permission to interact with the bucket. The bucket access can be changed both during creation and after.</br>
+4. Create a user who will work on downloading with the created bucket.</br>
+4.1 Go to the <a href=\"https://console.aws.amazon.com/iamv2/home\">IAM</a> service. Amazon strongly recommends that all work be done on behalf of the user! Enter a name and select the Programmatic access option.</br>
+4.2 Then you can add a group to the user being created (see Amazon Manual), if there are no groups or there is no need to assign a group, then go to the next step.</br>
+4.3 In the third step, you can add tags (optional). Go to the next step.</br>
+4.4 You can view and check the values you entered. Perhaps a warning will be displayed that the user being created does not have access (at the moment access is not required, since the user will be granted access elsewhere), ignore this warning and go to the next step.</br>
+4.5 Copy and save the Passkey ID and Secret Passkey. It is also possible to download a file with the .csv extension.</br>
+5. Зайдите в профиль созданного пользователя и скопируйте его User ARN.</br>
+6. Go to the <a href=\"https://s3.console.aws.amazon.com/s3/home\">S3</a> service page. Go to the bucket you created. Click the Permissions tab. In the Bucket Policy section, add a json-formatted policy. A policy is provided to allow the user to upload files to Amazon S3.
+It is recommended to use a policy generator (policy generator). Follow the link <a href=\"https://awspolicygen.s3.amazonaws.com/policygen.html\">Policy generator</a> to generate a policy in json format.</br>
+6.1 Step one Select a policy type, in Select a policy type, select S3 Bucket Policy.</br>
+6.2 Step two Add Statement(s), in Effect select Allow, in Principal enter the User ARN value of your user (example:
+arn: aws: iam :: 467903551842: user / your-user), in Actions to upload files to Amazon S3, select PutObject, in Amazon Resource Name (ARN) enter (example: arn: aws: s3 ::: you-bucket - name / *).</br>
+6.3 Create a policy by clicking the Add Statement button.</br>
+6.4 We generate the policy in json format and copy the code.</br>
+7. Set the copied code in json format into the input window in the Bucket policy section of the Permissions tab. We save the policy by clicking on the Save button.</br>
+8. When creating an automatic task for uploading files to Amazon S3, enter the received data into the corresponding input fields of the task setting and specify the path to the directory from which the files will be automatically uploaded to Amazon S3."
 
 msgctxt "Languages::cp_aws_s3_folder_tooltip"
 msgid "A folder from which files will be uploaded to your Amazon S3"
