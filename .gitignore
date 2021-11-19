@@ -1,7 +1,7 @@
-.htaccess
-config.php
-config.local.php
-local_conf.php
+/.htaccess
+/config.php
+/config.local.php
+/local_conf.php
 
 cache
 snapshots
